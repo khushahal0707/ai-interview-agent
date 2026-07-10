@@ -4,7 +4,7 @@ import { IoSparkles } from "react-icons/io5";
 import { motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../utils/firebase';
+import { auth, googleProvider } from "../firebase";
 import axios from 'axios';
 import { ServerUrl } from '../App';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ function Auth({isModel = false}) {
 
     const handleGoogleAuth = async () => {
         try {
-            const response = await signInWithPopup(auth,provider)
+            const response = await signInWithPopup(auth, googleProvider)
             let User = response.user
             let name = User.displayName
             let email = User.email
