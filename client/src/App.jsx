@@ -11,7 +11,7 @@ import InterviewHistory from './pages/InterviewHistory'
 import Pricing from './pages/Pricing'
 import InterviewReport from './pages/InterviewReport'
 
-const ServerUrl = "https://ai-interview-backend-gr68.onrender.com";
+export const ServerUrl = "https://ai-interview-backend-gr68.onrender.com";
 
 function App() {
 
