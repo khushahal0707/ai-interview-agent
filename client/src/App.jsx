@@ -15,33 +15,36 @@ export const ServerUrl = "https://ai-interview-backend-gr68.onrender.com";
 
 function App() {
 
-  const dispatch = useDispatch()
-  useEffect(()=>{
+  const dispatch = useDispatch();
+
+  useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await axios.get(ServerUrl + "/api/user/current-user", {withCredentials:true})
-        dispatch(setUserData(result.data))
-      } catch (error) {
-        console.log(error)
-        dispatch(setUserData(null))
-      }
-    }
-    getUser()
+        const result = await axios.get(
+          ServerUrl + "/api/user/current-user",
+          { withCredentials: true }
+        );
 
-  },[dispatch])
+        dispatch(setUserData(result.data));
+      } catch (error) {
+        console.log(error);
+        dispatch(setUserData(null));
+      }
+    };
+
+    getUser();
+  }, [dispatch]);
+
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/auth' element={<Auth/>}/>
-      <Route path='/interview' element={<InterviewPage/>}/>
-      <Route path='/history' element={<InterviewHistory/>}/>
-      <Route path='/pricing' element={<Pricing/>}/>
-      <Route path='/report/:id' element={<InterviewReport/>}/>
-
-
-
+      <Route path="/" element={<Home />} />
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/interview" element={<InterviewPage />} />
+      <Route path="/history" element={<InterviewHistory />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/report/:id" element={<InterviewReport />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
